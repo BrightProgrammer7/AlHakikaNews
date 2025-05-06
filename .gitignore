@@ -91,3 +91,4 @@ target/
 .db
 .vercel
 .history/
+venv/
