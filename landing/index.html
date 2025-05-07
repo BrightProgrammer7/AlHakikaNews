@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlHakikaNews | AI-Powered Fake News Detection</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            background-color: #f8fafc;
+        }
+        .gradient-bg {
+            background: linear-gradient(90deg, #1a365d 0%, #2563eb 100%);
+        }
+        .card {
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .feature-icon {
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+        }
+        .wave-divider {
+            height: 50px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='1' d='M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,90.7C672,85,768,107,864,122.7C960,139,1056,149,1152,144C1248,139,1344,117,1392,106.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            background-size: cover;
+            margin-top: -1px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-10 print:static">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <span class="text-2xl font-bold text-blue-800">AlHakika<span class="text-green-600">News</span></span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#features" class="text-gray-700 hover:text-blue-600 transition duration-300">Features</a>
+                <a href="#technology" class="text-gray-700 hover:text-blue-600 transition duration-300">Technology</a>
+                <a href="#about" class="text-gray-700 hover:text-blue-600 transition duration-300">About</a>
+                <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white pt-28 pb-16 print:pt-10">
+        <div class="container mx-auto px-6 flex flex-col items-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-center leading-tight mb-6">Combating Misinformation With AI</h1>
+            <p class="text-xl md:text-2xl text-center mb-8 max-w-3xl">AlHakikaNews uses advanced AI to detect, classify, and report fake news in real-time, bringing truth back to digital media.</p>
+            <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#features" class="bg-white text-blue-800 font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition duration-300 text-center">Discover Features</a>
+                <a href="#demo" class="bg-transparent border-2 border-white text-white font-bold px-8 py-3 rounded-lg hover:bg-white hover:text-blue-800 transition duration-300 text-center">Request Demo</a>
+            </div>
+        </div>
+        <div class="wave-divider"></div>
+    </section>
+
+    <!-- Problem Statement -->
+    <section class="py-16 bg-white" id="problem">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <div class="bg-blue-100 p-2 rounded-full inline-block mb-4">
+                        <i class="fas fa-exclamation-triangle text-blue-600 text-2xl p-2"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-6">The Fake News Crisis</h2>
+                    <p class="text-gray-600 mb-4">In today's digital age, misinformation spreads 6 times faster than accurate news, with deepfakes and AI-generated content making it increasingly difficult to distinguish truth from fiction.</p>
+                    <p class="text-gray-600 mb-4">The consequences are severe: eroded trust in media, polarized societies, and manipulated public opinion that threatens democratic processes.</p>
+                    <div class="bg-red-50 border-l-4 border-red-500 p-4 mt-6">
+                        <p class="font-semibold text-red-700">70% of people report confusion about what news is factual.</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-10">
+                    <div class="bg-gray-100 rounded-xl p-8 shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">The Growing Challenge</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Advanced AI makes creating convincing fake content easier than ever</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Social media algorithms amplify sensational content regardless of accuracy</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Human fact-checkers can't keep pace with the volume of misinformation</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Traditional detection methods fail against sophisticated deepfakes</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Solution -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold">Introducing AlHakikaNews</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Our cutting-edge platform combines the power of GenAI and machine learning to create a comprehensive fake news detection system.</p>
+            </div>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <div class="bg-white rounded-xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-semibold mb-6 text-blue-800">How It Works</h3>
+                        <div class="space-y-6">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-md feature-icon text-white">
+                                        <i class="fas fa-robot"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900">Content Analysis</h4>
+                                    <p class="mt-2 text-gray-600">Our NLP models analyze article text, context, and metadata to identify potential misinformation.</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-md feature-icon text-white">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900">Fact Verification</h4>
+                                    <p class="mt-2 text-gray-600">Cross-references claims against trusted databases and sources in real-time.</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <div class="flex items-center justify-center h-12 w-12 rounded-md feature-icon text-white">
+                                        <i class="fas fa-chart-pie"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-gray-900">Classification</h4>
+                                    <p class="mt-2 text-gray-600">Categorizes content on a spectrum from "Verified" to "False" with detailed analysis.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="relative rounded-lg overflow-hidden shadow-xl">
+                        <div class="bg-blue-800 text-white p-10 text-center">
+                            <i class="fas fa-shield-alt text-5xl mb-6"></i>
+                            <h3 class="text-2xl font-bold mb-4">AlHakikaNews Pipeline</h3>
+                            <p class="text-blue-100 mb-6">Content → Analysis → Verification → Classification → Report</p>
+                            <div class="bg-blue-700 p-4 rounded-lg">
+                                <p class="text-lg font-semibold">Our accuracy rate exceeds 94% across multiple content types and languages</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-16 bg-white" id="features">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold">Key Features</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">AlHakikaNews offers a comprehensive suite of tools to combat misinformation effectively.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                    <div class="text-4xl text-blue-600 mb-4">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Real-Time Detection</h3>
+                    <p class="text-gray-600">Instantly analyzes content as it's published to provide immediate authenticity assessment.</p>
+                </div>
+                <div class="card bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                    <div class="text-4xl text-blue-600 mb-4">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">AI-Powered Analysis</h3>
+                    <p class="text-gray-600">Leverages state-of-the-art GenAI models trained on vast datasets of both genuine and fake content.</p>
+                </div>
+                <div class="card bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                    <div class="text-4xl text-blue-600 mb-4">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Multilingual Support</h3>
+                    <p class="text-gray-600">Detects misinformation across multiple languages and regional contexts.</p>
+                </div>
+                <div class="card bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                    <div class="text-4xl text-blue-600 mb-4">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Comprehensive Dashboard</h3>
+                    <p class="text-gray-600">Intuitive interface providing detailed analytics and misinformation tracking.</p>
+                </div>
+                <div class="card bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                    <div class="text-4xl text-blue-600 mb-4">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">API Integration</h3>
+                    <p class="text-gray-600">Seamlessly integrates with news platforms, social media, and content management systems.</p>
+                </div>
+                <div class="card bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                    <div class="text-4xl text-blue-600 mb-4">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Source Tracking</h3>
+                    <p class="text-gray-600">Identifies and monitors known sources of misinformation to improve detection accuracy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology -->
+    <section class="py-16 bg-gray-50" id="technology">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold">Our Technology</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">A deeper look at the innovative AI systems powering AlHakikaNews.</p>
+            </div>
+            <div class="flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 mb-8 lg:mb-0 lg:pr-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg h-full">
+                        <h3 class="text-2xl font-semibold mb-6 text-blue-800">The Technical Framework</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="text-xl font-medium text-gray-900 mb-2">NLP & Language Understanding</h4>
+                                <p class="text-gray-600">Advanced transformer-based models analyze linguistic patterns, semantic inconsistencies, and contextual anomalies.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-medium text-gray-900 mb-2">Machine Learning Classification</h4>
+                                <p class="text-gray-600">Ensemble of specialized classifiers trained to identify various categories of misinformation.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-medium text-gray-900 mb-2">Knowledge Graph</h4>
+                                <p class="text-gray-600">Continuously updated database of verified facts and known misinformation patterns.</p>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-medium text-gray-900 mb-2">Deepfake Detection</h4>
+                                <p class="text-gray-600">Specialized computer vision algorithms to identify manipulated media content.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 lg:pl-8">
+                    <div class="bg-gradient-to-r from-blue-700 to-blue-900 text-white p-8 rounded-xl shadow-lg h-full">
+                        <h3 class="text-2xl font-semibold mb-6">Our Competitive Edge</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-300 mt-1 mr-3 text-lg"></i>
+                                <span><span class="font-semibold">Faster Detection:</span> Our system processes and classifies content in under 3 seconds, compared to industry average of 30+ seconds.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-300 mt-1 mr-3 text-lg"></i>
+                                <span><span class="font-semibold">Higher Accuracy:</span> 94% accuracy rate exceeds current market solutions by 15-20%.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-300 mt-1 mr-3 text-lg"></i>
+                                <span><span class="font-semibold">Explainable AI:</span> Transparent reasoning process shows users why content was flagged.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-300 mt-1 mr-3 text-lg"></i>
+                                <span><span class="font-semibold">Continuous Learning:</span> System improves with each analysis, adapting to new misinformation tactics.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-300 mt-1 mr-3 text-lg"></i>
+                                <span><span class="font-semibold">Lower False Positives:</span> Sophisticated verification reduces incorrect flagging of legitimate content.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold">Who Benefits</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">AlHakikaNews serves multiple stakeholders in the fight against misinformation.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-blue-50 rounded-xl p-8 border border-blue-100 shadow-md">
+                    <div class="text-center mb-6">
+                        <div class="inline-block p-3 bg-blue-100 rounded-full">
+                            <i class="fas fa-user-edit text-blue-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mt-4">Media Organizations</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Verify content before publication</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Protect journalistic integrity</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Build audience trust</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Streamline fact-checking processes</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-blue-50 rounded-xl p-8 border border-blue-100 shadow-md">
+                    <div class="text-center mb-6">
+                        <div class="inline-block p-3 bg-blue-100 rounded-full">
+                            <i class="fas fa-users text-blue-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mt-4">General Public</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Make informed decisions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Avoid sharing misinformation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Verify news before believing it</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Develop media literacy skills</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-blue-50 rounded-xl p-8 border border-blue-100 shadow-md">
+                    <div class="text-center mb-6">
+                        <div class="inline-block p-3 bg-blue-100 rounded-full">
+                            <i class="fas fa-building text-blue-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mt-4">Institutions & Government</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Monitor disinformation campaigns</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Protect democratic processes</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Combat foreign influence operations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>Enforce media regulatory standards</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 bg-gray-50" id="about">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h2 class="text-3xl font-bold mb-6">About AlHakikaNews</h2>
+                    <p class="text-gray-600 mb-4">AlHakikaNews was developed by a team of AI researchers and media experts participating in the deepfake hackathon at Mohammed VI Polytechnic University (UM6P).</p>
+                    <p class="text-gray-600 mb-6">Our mission is to restore truth and transparency to the digital information ecosystem through innovative AI solutions that are accessible to all.</p>
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
+                        <p class="italic text-blue-800">"AlHakika" means "The Truth" in Arabic, reflecting our commitment to uncovering reality in a world increasingly filled with artificial content.</p>
+                    </div>
+                </div>
+                <div class="md:w-1/2 md:pl-10">
+                    <div class="bg-white rounded-xl p-8 shadow-lg">
+                        <h3 class="text-xl font-semibold mb-4 text-gray-800">The Competition</h3>
+                        <p class="text-gray-600 mb-4">AlHakikaNews is competing in the prestigious UM6P Deepfake Hackathon, which challenges teams to create innovative solutions for detecting and combating synthetic media and disinformation.</p>
+                        <div class="flex items-center justify-between mt-6">
+                            <div>
+                                <div class="text-sm text-gray-500">Hackathon Host</div>
+                                <div class="font-medium">UM6P</div>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-500">Category</div>
+                                <div class="font-medium">Fake News Detection</div>
+                            </div>
+                            <div>
+                                <div class="text-sm text-gray-500">Technology</div>
+                                <div class="font-medium">AI / ML / GenAI</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 gradient-bg text-white" id="demo">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to Fight Fake News?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Join the battle against misinformation with AlHakikaNews. Request a demo or get in touch with our team.</p>
+            <form class="max-w-lg mx-auto bg-white rounded-lg p-6 shadow-lg">
+                <div class="mb-4">
+                    <input type="text" placeholder="Your Name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
+                </div>
+                <div class="mb-4">
+                    <input type="email" placeholder="Email Address" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
+                </div>
+                <div class="mb-4">
+                    <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
+                        <option>I'm interested in...</option>
+                        <option>Media Integration</option>
+                        <option>API Access</option>
+                        <option>Full Solution</option>
+                        <option>Research Collaboration</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700 transition duration-300">Request Demo</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-16 bg-white" id="contact">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold">Get In Touch</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Have questions about AlHakikaNews? Our team is ready to help.</p>
+            </div>
+            <div class="flex flex-col md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-6">
+                <div class="text-center">
+                    <div class="inline-block p-3 bg-blue-100 rounded-full mb-4">
+                        <i class="fas fa-envelope text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Email Us</h3>
+                    <p class="text-gray-600">info@alhakikanews.com</p>
+                </div>
+                <div class="text-center">
+                    <div class="inline-block p-3 bg-blue-100 rounded-full mb-4">
+                        <i class="fas fa-phone text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Call Us</h3>
+                    <p class="text-gray-600">+212 522 123 456</p>
+                </div>
+                <div class="text-center">
+                    <div class="inline-block p-3 bg-blue-100 rounded-full mb-4">
+                        <i class="fas fa-map-marker-alt text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Visit Us</h3>
+                    <p class="text-gray-600">UM6P, Ben Guerir, Morocco</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-2xl font-bold">AlHakika<span class="text-green-400">News</span></span>
+                    <p class="mt-2 text-gray-400">Fighting fake news with AI</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <hr class="border-gray-700 my-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2023 AlHakikaNews. All rights reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition duration-300">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition duration-300">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
